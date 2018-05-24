@@ -8,6 +8,11 @@ and open the template in the editor.
     Author     : pranalipatil
 */
 
+body {
+  background-color: red;
+  height: 100vh;
+}
+
 .login-form {
   width: 350px;
   padding: 20px 30px;
