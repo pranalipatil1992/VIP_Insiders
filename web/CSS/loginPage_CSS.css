@@ -10,6 +10,7 @@ and open the template in the editor.
 
 body {
   background-color: red;
+  height: 100vh;
 }
 
 .login-form {
