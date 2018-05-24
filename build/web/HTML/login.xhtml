@@ -8,7 +8,7 @@
     <h:body>
         <h:form>
             <p> User ID <br/>
-            <h:inputText styleClass="login-form" id="id" required="true"
+            <h:inputText id="id" required="true"
                          requiredMessage="The User ID field cannot be empty"
                          title="Please enter your User ID"
                          value="#{login.userId}"
@@ -17,7 +17,7 @@
                 </h:inputText>    
             </p>
             
-            <p>Password
+            <p>Password 
             <h:inputSecret value="#{login.password}"></h:inputSecret>
             </p>
             
