@@ -1,6 +1,355 @@
+/* VARS
+ * =================================
+ */
+ 	$lightest-grey: #f9f9f9;
+ 	$lighter-grey: #e4e4e4;
+ 	$kb-pink: #ed4a63;
+	$cb: cubic-bezier(.49,.01,.22,1);
+
+/* MIXINS
+ * =================================
+ */
+		@mixin transform($val) {
+		-webkit-transform: $val;
+		-moz-transform: $val;
+		-ms-transform: $val;
+		transform: $val;
+	}
+
+	@mixin transition($val...) {
+		-webkit-transition: $val;
+		-moz-transition: $val;
+		-o-transition: $val;
+		-ms-transition: $val;
+		transition: $val;
+	}
+
+	@mixin transform-origin ($origin) {
+		moz-transform-origin: $origin;
+		-o-transform-origin: $origin;
+		-ms-transform-origin: $origin;
+		-webkit-transform-origin: $origin;
+		transform-origin: $origin;
+	}
+
+	@mixin display-flex {
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	@mixin display-inline-flex {
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+	}
+
+	@mixin justify-content($value) {
+		-webkit-justify-content: $value;
+		justify-content: $value;
+	}
+
+	@mixin flex-wrap($wrap) {
+		-webkit-flex-wrap: $wrap;
+		-moz-flex-wrap: $wrap;
+		-ms-flex-wrap: $wrap;
+		flex-wrap: $wrap;
+	}
+
+	@mixin align-content($align) {
+		-webkit-align-content: $align;
+		-moz-align-content: $align;
+		-ms-align-content: $align;
+		align-content: $align;
+	}
+
+	@mixin align-items($align) {
+		-webkit-align-items: $align;
+		-moz-align-items: $align;
+		-ms-align-items: $align;
+		align-items: $align;
+	}
+
+	@mixin align-content($align) {
+		-webkit-align-content: $align;
+		-moz-align-content: $align;
+		-ms-align-content: $align;
+		align-content: $align;
+	}
+
+	@mixin user-select($val) {
+		-webkit-user-select: $val;
+		-moz-user-select: $val;
+		-ms-user-select: $val;
+		user-select: $val;
+	}
+
+	@mixin appearance($val) {
+		-webkit-appearance: $val;
+		-moz-appearance: $val;
+		-ms-appearance: $val;
+		-o-appearance: $val;
+		appearance: $val;
+	}
+
+	@mixin order($val) {
+		-webkit-box-ordinal-group: $val;
+		-moz-box-ordinal-group: $val;
+		-ms-flex-order: $val;
+		-webkit-order: $val;
+		order: $val;
+	}
+
+	@mixin flex-direction($direction) {
+		-webkit-flex-direction: $direction;
+		-moz-flex-direction: $direction;
+		-ms-flex-direction: $direction;
+		flex-direction: $direction;
+	}
+
+	@mixin flex($fg: 1, $fs: null, $fb: null) {
+	    
+		// Set a variable to be used by box-flex properties
+		$fg-boxflex: $fg;
+
+		// Box-Flex only supports a flex-grow value so let's grab the
+		// first item in the list and just return that.
+		@if type-of($fg) == 'list' {
+			$fg-boxflex: nth($fg, 1);
+		}
+
+		-webkit-box-flex: $fg-boxflex;
+		-webkit-flex: $fg $fs $fb;
+		-moz-box-flex: $fg-boxflex;
+		-moz-flex: $fg $fs $fb;
+		-ms-flex: $fg $fs $fb;
+		flex: $fg $fs $fb;
+	}
+
+	@mixin clip-path($clip...) {
+		-webkit-clip-path: $clip;
+		-moz-clip-path: $clip;
+		-ms-clip-path: $clip;
+		clip-path: $clip;
+	}
+
+	@mixin animation($animation, $duration, $timing-function: false, $delay: false, $direction: false, $iteration-count: false) {
+		-webkit-animation-delay: $delay;
+		-webkit-animation-duration: $duration;
+		-webkit-animation-name: $animation;
+		-webkit-animation-direction: $direction;
+		-webkit-animation-timing-function: $timing-function;
+		-webkit-animation-iteration-count: $iteration-count;
+
+		-moz-animation-delay: $delay;
+		-moz-animation-duration: $duration;
+		-moz-animation-name: $animation;
+		-moz-animation-direction: $direction;
+		-moz-animation-timing-function: $timing-function;
+		-moz-animation-iteration-count: $iteration-count;
+
+		animation-delay: $delay;
+		animation-duration: $duration;
+		animation-name: $animation;
+		animation-direction: $direction;
+		animation-timing-function: $timing-function;
+		animation-iteration-count: $iteration-count;
+	}
+
+	@mixin keyframes($animationName) {
+		@-webkit-keyframes #{$animationName} {
+			@content;
+		}
+		@-moz-keyframes #{$animationName} {
+			@content;
+		}
+		@keyframes #{$animationName} {
+			@content;
+		}
+	}
+
+	@mixin border-box {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+* {
+	@include border-box;
+	font-family: helvetica, arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+input {
+	font-weight: lighter;
+	font-size: 16px;
+}
 
 body {
-  height: 100vh;
-  background-color: #f4f4f4;
-  display: block;
+	margin: 0;
+
+	.app-container {
+		position: relative;
+		z-index: 1;
+		margin: 100px auto 80px;
+		min-height: 800px;
+		max-width: 500px;
+		background-color: $lightest-grey;
+		border: 1px solid $lighter-grey;
+		// border-radius: 5px;
+		padding: 16px;
+		background-image: url('../assets/restaurant.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		// background-attachment: fixed;
+
+		&:before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background-color: black;
+			opacity: .5;
+			z-index: -1;
+		}
+
+		.mobile-menu-container {
+			position: fixed;
+			bottom: 0;
+			max-width: 500px;
+			width: 100%;
+			height: 80px;
+			border: 1px solid $lighter-grey;
+			background-color: white;
+			left: 50%;
+			@include transform(translateX(-50%));
+			box-shadow: 0 0 5px rgba(245,245,245,1);
+			@include display-flex;
+			overflow: hidden;
+
+			a.menu-link {
+				@include display-flex;
+				@include align-items(center);
+				@include justify-content(center);
+				width: 25%;
+				height: 100%;
+
+				&:not(:last-child) {
+					border-right: 1px solid $lighter-grey;
+				}
+
+				&.active {
+					&:before {
+						content: '';
+						position: absolute;
+						top: 0;
+						width: 25%;
+						height: 3px;
+						background-color: $kb-pink;
+					}
+					.icon-wrapper {
+						opacity: 1;
+					}
+						
+				}
+
+				.icon-wrapper {
+					opacity: .4;
+					text-align: center;
+
+					img {
+						width: 22px;
+						margin: 5px 0;
+					}
+					span {
+						font-weight: 100;
+						font-size: 14px;
+						font-weight: 400;
+						color: black;
+						display: block;
+					}
+				}
+					
+			}
+		}
+	}
+
+	&#home {
+		h1 {
+			text-align: center;
+			color: white;
+			margin: 40px 0;
+		}
+
+		#register-container {
+			padding: 16px;
+			background-color: white;
+			border-radius: 5px;
+
+			#register-tabs {
+				@include display-flex;
+				margin-bottom: 20px;
+
+				span {
+					width: 50%;
+					text-align: center;
+					cursor: pointer;
+					padding: 10px 0;
+					font-size: 21px;
+					font-weight: bold;
+
+					&.active {
+						border-bottom: 4px solid $kb-pink;
+					}
+				}
+			}
+			
+			.register-form {
+				display: none;
+
+				&.active {
+					@include display-flex;
+					@include flex-wrap(wrap);
+				}
+
+				input {
+					width: 100%;
+					margin: 15px 0;
+					padding: 10px;
+				}
+				button {
+					margin: 20px auto;
+					background: $kb-pink;
+					color: white;
+					line-height: 1;
+					padding: 0 40px;
+					height: 40px;
+					border-radius: 25px;
+					font-size: 16px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

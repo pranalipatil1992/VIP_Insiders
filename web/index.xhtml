@@ -3,21 +3,74 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
 	<h:head>
-		<title>Home Page</title>
+		<title>VIP Insiders | King's BierHaus</title>
 		<link href="./css/main.css" rel="stylesheet" type="text/css"/>
 	</h:head>
 
-	<h:body>
-		<center>
-			<h1>Home</h1>
-			<h:form>
+	<body id="home">
+		<div class="app-container">
+			<h1>King's BierHaus</h1>
+
+			<!-- <h:form>
 				<div class ="login-form">
 					<input type="button" onclick="location.href='./html/login.xhtml';" value="Login" />
 					<input type="button" onclick="location.href='./html/register_newUser.xhtml';" value="Sign_Up" />
 				</div>
-			</h:form>
-		</center>
-	</h:body>
+			</h:form> -->
+
+			<div id="register-container">
+				<div id="register-tabs">
+					<span id="signup-tab" class="active">Sign-Up</span>
+					<span id="signin-tab">Sign-In</span>
+				</div>
+
+				<form class="register-form active" id="signup-form">
+					<input type="" name="" placeholder="Username" />
+					<input type="" name="" placeholder="Password" />
+					<input type="" name="" placeholder="Confirm Password" />
+					<button>Sign Up</button>
+				</form>
+
+				<form class="register-form" id="signin-form">
+					<input type="" name="" placeholder="Username" />
+					<input type="" name="" placeholder="Password" />
+					<button>Login</button>
+				</form>
+			</div>
+
+
+
+			<div class="mobile-menu-container">
+				<a class="menu-link menu-link-home" href="#" onclick="return false">
+					<div class="icon-wrapper">
+						<img src="./assets/home-icon.svg" />
+						<span>Home</span>
+					</div>
+				</a>
+				<a class="menu-link menu-link-benefits" href="#" onclick="return false">
+					<div class="icon-wrapper">
+						<img src="./assets/benefits-icon.svg" />
+						<span>Benefits</span>
+					</div>
+				</a>
+				<a class="menu-link menu-link-rewards" href="#" onclick="return false">
+					<div class="icon-wrapper">
+						<img src="./assets/rewards-icon.svg" />
+						<span>Rewards</span>
+					</div>
+				</a>
+				<a class="menu-link menu-link-settings" href="#" onclick="return false">
+					<div class="icon-wrapper">
+						<img src="./assets/settings-icon.svg" />
+						<span>Settings</span>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="./js/index.js"></script>
+	</body>
 
 </html>
 

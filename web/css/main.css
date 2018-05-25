@@ -1,6 +1,145 @@
+/* VARS
+ * =================================
+ */
+/* MIXINS
+ * =================================
+ */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: helvetica, arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+input {
+  font-weight: lighter;
+  font-size: 16px; }
+
 body {
-  height: 100vh;
-  background-color: #f4f4f4;
-  display: block; }
+  margin: 0; }
+  body .app-container {
+    position: relative;
+    z-index: 1;
+    margin: 100px auto 80px;
+    min-height: 800px;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    border: 1px solid #e4e4e4;
+    padding: 16px;
+    background-image: url("../assets/restaurant.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; }
+    body .app-container:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: black;
+      opacity: .5;
+      z-index: -1; }
+    body .app-container .mobile-menu-container {
+      position: fixed;
+      bottom: 0;
+      max-width: 500px;
+      width: 100%;
+      height: 80px;
+      border: 1px solid #e4e4e4;
+      background-color: white;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      box-shadow: 0 0 5px whitesmoke;
+      display: -webkit-flex;
+      display: flex;
+      overflow: hidden; }
+      body .app-container .mobile-menu-container a.menu-link {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 25%;
+        height: 100%; }
+        body .app-container .mobile-menu-container a.menu-link:not(:last-child) {
+          border-right: 1px solid #e4e4e4; }
+        body .app-container .mobile-menu-container a.menu-link.active:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 25%;
+          height: 3px;
+          background-color: #ed4a63; }
+        body .app-container .mobile-menu-container a.menu-link.active .icon-wrapper {
+          opacity: 1; }
+        body .app-container .mobile-menu-container a.menu-link .icon-wrapper {
+          opacity: .4;
+          text-align: center; }
+          body .app-container .mobile-menu-container a.menu-link .icon-wrapper img {
+            width: 22px;
+            margin: 5px 0; }
+          body .app-container .mobile-menu-container a.menu-link .icon-wrapper span {
+            font-weight: 100;
+            font-size: 14px;
+            font-weight: 400;
+            color: black;
+            display: block; }
+  body#home h1 {
+    text-align: center;
+    color: white;
+    margin: 40px 0; }
+  body#home #register-container {
+    padding: 16px;
+    background-color: white;
+    border-radius: 5px; }
+    body#home #register-container #register-tabs {
+      display: -webkit-flex;
+      display: flex;
+      margin-bottom: 20px; }
+      body#home #register-container #register-tabs span {
+        width: 50%;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px 0;
+        font-size: 21px;
+        font-weight: bold; }
+        body#home #register-container #register-tabs span.active {
+          border-bottom: 4px solid #ed4a63; }
+    body#home #register-container .register-form {
+      display: none; }
+      body#home #register-container .register-form.active {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+      body#home #register-container .register-form input {
+        width: 100%;
+        margin: 15px 0;
+        padding: 10px; }
+      body#home #register-container .register-form button {
+        margin: 20px auto;
+        background: #ed4a63;
+        color: white;
+        line-height: 1;
+        padding: 0 40px;
+        height: 40px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold; }
 
 /*# sourceMappingURL=main.css.map */
