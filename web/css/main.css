@@ -26,7 +26,7 @@ body {
   body .app-container {
     position: relative;
     z-index: 1;
-    margin: 100px auto 80px;
+    margin: 100px auto 79px;
     min-height: 800px;
     max-width: 500px;
     background-color: #f9f9f9;
@@ -46,57 +46,59 @@ body {
       background-color: black;
       opacity: .5;
       z-index: -1; }
-    body .app-container .mobile-menu-container {
-      position: fixed;
-      bottom: 0;
-      max-width: 500px;
-      width: 100%;
-      height: 80px;
-      border: 1px solid #e4e4e4;
-      background-color: white;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%);
-      box-shadow: 0 0 5px whitesmoke;
+  body .mobile-menu-container {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    max-width: 500px;
+    width: 100%;
+    height: 80px;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    background-color: white;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    box-shadow: 0 -10px 10px -5px rgba(15, 15, 15, 0.15);
+    display: -webkit-flex;
+    display: flex;
+    overflow: hidden; }
+    body .mobile-menu-container a.menu-link {
       display: -webkit-flex;
       display: flex;
-      overflow: hidden; }
-      body .app-container .mobile-menu-container a.menu-link {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 25%;
+      height: 100%; }
+      body .mobile-menu-container a.menu-link:not(:last-child) {
+        border-right: 1px solid #e4e4e4; }
+      body .mobile-menu-container a.menu-link.active:before {
+        content: '';
+        position: absolute;
+        top: 0;
         width: 25%;
-        height: 100%; }
-        body .app-container .mobile-menu-container a.menu-link:not(:last-child) {
-          border-right: 1px solid #e4e4e4; }
-        body .app-container .mobile-menu-container a.menu-link.active:before {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 25%;
-          height: 3px;
-          background-color: #ed4a63; }
-        body .app-container .mobile-menu-container a.menu-link.active .icon-wrapper {
-          opacity: 1; }
-        body .app-container .mobile-menu-container a.menu-link .icon-wrapper {
-          opacity: .4;
-          text-align: center; }
-          body .app-container .mobile-menu-container a.menu-link .icon-wrapper img {
-            width: 22px;
-            margin: 5px 0; }
-          body .app-container .mobile-menu-container a.menu-link .icon-wrapper span {
-            font-weight: 100;
-            font-size: 14px;
-            font-weight: 400;
-            color: black;
-            display: block; }
+        height: 3px;
+        background-color: #ed4a63; }
+      body .mobile-menu-container a.menu-link.active .icon-wrapper {
+        opacity: 1; }
+      body .mobile-menu-container a.menu-link .icon-wrapper {
+        opacity: .4;
+        text-align: center; }
+        body .mobile-menu-container a.menu-link .icon-wrapper img {
+          width: 22px;
+          margin: 5px 0; }
+        body .mobile-menu-container a.menu-link .icon-wrapper span {
+          font-weight: 100;
+          font-size: 14px;
+          font-weight: 400;
+          color: black;
+          display: block; }
   body#home h1 {
     text-align: center;
     color: white;

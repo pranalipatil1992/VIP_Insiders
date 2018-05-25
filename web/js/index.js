@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	
 	$('.menu-link').click(function() {
 		$('.menu-link').removeClass('active');
 		$(this).toggleClass('active');
@@ -11,4 +11,5 @@ $(document).ready(function() {
 		$('#' + form_name + '-tab').addClass('active');
 		$('#' + form_name + '-form').addClass('active');
 	});
+
 });

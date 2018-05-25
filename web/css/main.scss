@@ -198,12 +198,11 @@ body {
 	.app-container {
 		position: relative;
 		z-index: 1;
-		margin: 100px auto 80px;
+		margin: 100px auto 79px;
 		min-height: 800px;
 		max-width: 500px;
 		background-color: $lightest-grey;
 		border: 1px solid $lighter-grey;
-		// border-radius: 5px;
 		padding: 16px;
 		background-image: url('../assets/restaurant.jpg');
 		background-size: cover;
@@ -222,65 +221,66 @@ body {
 			opacity: .5;
 			z-index: -1;
 		}
+	}
+	.mobile-menu-container {
+		z-index: 100;
+		position: fixed;
+		bottom: 0;
+		max-width: 500px;
+		width: 100%;
+		height: 80px;
+		border: 1px solid $lighter-grey;
+		border-top: none;
+		background-color: white;
+		left: 50%;
+		@include transform(translateX(-50%));
+		box-shadow: 0 -10px 10px -5px rgba(15, 15, 15, 0.15);
+		@include display-flex;
+		overflow: hidden;
 
-		.mobile-menu-container {
-			position: fixed;
-			bottom: 0;
-			max-width: 500px;
-			width: 100%;
-			height: 80px;
-			border: 1px solid $lighter-grey;
-			background-color: white;
-			left: 50%;
-			@include transform(translateX(-50%));
-			box-shadow: 0 0 5px rgba(245,245,245,1);
+		a.menu-link {
 			@include display-flex;
-			overflow: hidden;
+			@include align-items(center);
+			@include justify-content(center);
+			width: 25%;
+			height: 100%;
 
-			a.menu-link {
-				@include display-flex;
-				@include align-items(center);
-				@include justify-content(center);
-				width: 25%;
-				height: 100%;
+			&:not(:last-child) {
+				border-right: 1px solid $lighter-grey;
+			}
 
-				&:not(:last-child) {
-					border-right: 1px solid $lighter-grey;
+			&.active {
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					width: 25%;
+					height: 3px;
+					background-color: $kb-pink;
 				}
-
-				&.active {
-					&:before {
-						content: '';
-						position: absolute;
-						top: 0;
-						width: 25%;
-						height: 3px;
-						background-color: $kb-pink;
-					}
-					.icon-wrapper {
-						opacity: 1;
-					}
-						
-				}
-
 				.icon-wrapper {
-					opacity: .4;
-					text-align: center;
-
-					img {
-						width: 22px;
-						margin: 5px 0;
-					}
-					span {
-						font-weight: 100;
-						font-size: 14px;
-						font-weight: 400;
-						color: black;
-						display: block;
-					}
+					opacity: 1;
 				}
 					
 			}
+
+			.icon-wrapper {
+				opacity: .4;
+				text-align: center;
+
+				img {
+					width: 22px;
+					margin: 5px 0;
+				}
+				span {
+					font-weight: 100;
+					font-size: 14px;
+					font-weight: 400;
+					color: black;
+					display: block;
+				}
+			}
+				
 		}
 	}
 
