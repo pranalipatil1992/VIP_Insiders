@@ -18,16 +18,29 @@
 				</div>
 			</h:form> -->
 
-			<div id="register-container">
+			<!-- LOGIN/SIGNUP INFORMATION -->
+			<div id="register-container" class="card-container">
 				<div id="register-tabs">
 					<span id="signup-tab" class="active">Sign-Up</span>
 					<span id="signin-tab">Sign-In</span>
 				</div>
 
 				<form class="register-form active" id="signup-form">
-					<input type="" name="" placeholder="Username" />
-					<input type="" name="" placeholder="Password" />
-					<input type="" name="" placeholder="Confirm Password" />
+					<span>
+						<label for="username">Username</label>
+						<input type="" name="username" />
+					</span>
+
+					<span>
+						<label for="password">Password</label>
+						<input type="" name="password" />
+					</span>
+
+					<span>
+						<label for="confirm_password">Confirm Password</label>
+						<input type="" name="confirm_password" />
+					</span>
+
 					<button>Sign Up</button>
 				</form>
 
@@ -37,6 +50,68 @@
 					<button>Login</button>
 				</form>
 			</div>
+
+			<!-- ACCOUNT INFORMATION -->
+			<div id="account-info-container" class="card-container">
+				<h2>Account Details</h2>
+				<form>
+					<span class="half-col">
+						<label for="first_name">First Name</label>
+						<input type="" name="first_name" />
+					</span>
+
+					<span class="half-col">
+						<label for="last_name">Last Name</label>
+						<input type="" name="last_name" />
+					</span>
+
+					<span>
+						<label for="email">Email</label>
+						<input type="" name="email" />
+					</span>
+
+					<span>
+						<label for="phone">Phone</label>
+						<input type="" name="phone" />
+					</span>
+				</form>
+			</div>
+
+			<!-- MEMBERSHIP INFORMATION -->
+			<div id="membership-container">
+				<div id="tier-buttons">
+					<span id="bronze-button" class="tier-button active">Bronze</span>
+					<span id="silver-button" class="tier-button">Silver</span>
+					<span id="gold-button" class="tier-button">Gold</span>
+				</div>
+				<div id="bronze-details" class="tier-details card-container active">
+					<h2>Bronze</h2>
+				</div>
+				<div id="silver-details" class="tier-details card-container">
+					<h2>Silver</h2>
+				</div>
+				<div id="gold-details" class="tier-details card-container">
+					<h2>Gold</h2>
+				</div>
+			</div>
+
+			<!-- PAYMENT INFORMATION -->
+			<div id="payment-container" class="card-container">
+				<h2>Payment Information</h2>
+				<form>
+					<span>
+						<label for="username">PayPal Username</label>
+						<input type="" name="username" />
+					</span>
+
+					<span>
+						<label for="password">PayPal Password</label>
+						<input type="" name="password" />
+					</span>
+
+					<button>Confirm</button>
+				</form>
+			</div>			
 		</div>
 
 		<div class="mobile-menu-container">

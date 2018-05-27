@@ -176,6 +176,7 @@
 	}
 
 * {
+	position: relative;
 	@include border-box;
 	font-family: helvetica, arial, sans-serif;
 }
@@ -283,6 +284,67 @@ body {
 				
 		}
 	}
+	.card-container {
+		padding: 16px;
+		background-color: white;
+		border-radius: 5px;
+		margin-bottom: 40px;
+
+		form {
+			@include display-flex;
+			@include flex-wrap(wrap);
+			@include justify-content(space-between);
+
+			& > span {
+				width: 100%;
+
+				&.half-col {
+					width: 46%;
+				}
+			}
+
+			label {
+				position: absolute;
+				left: 8px;
+				@include transform(translateY(30px));
+				@include transition(all .2s ease-in-out);
+				font-weight: lighter;
+				color: grey;
+
+				&.focused {
+					@include transform(none);
+					left: 0;
+					font-size: 12px;
+					font-weight: bold;
+					color: $kb-pink;
+				}
+			}
+
+			input {
+				width: 100%;
+				margin: 20px 0;
+				padding: 8px;
+				border: 1px solid lightgrey;
+				background: none;
+
+				&:focus {
+					// outline: none;
+					// border-bottom: 1px solid black;
+				}
+			}
+			button {
+				margin: 10px auto;
+				background: $kb-pink;
+				color: white;
+				line-height: 1;
+				padding: 0 40px;
+				height: 40px;
+				border-radius: 25px;
+				font-size: 16px;
+				font-weight: bold;
+			}
+		}
+	}
 
 	&#home {
 		h1 {
@@ -292,9 +354,6 @@ body {
 		}
 
 		#register-container {
-			padding: 16px;
-			background-color: white;
-			border-radius: 5px;
 
 			#register-tabs {
 				@include display-flex;
@@ -321,22 +380,43 @@ body {
 					@include display-flex;
 					@include flex-wrap(wrap);
 				}
+			}
+		}
 
-				input {
-					width: 100%;
-					margin: 15px 0;
-					padding: 10px;
-				}
-				button {
-					margin: 20px auto;
-					background: $kb-pink;
+		#membership-container {
+			#tier-buttons {
+				margin-bottom: 10px;
+
+				span.tier-button {
+					display: inline-block;
 					color: white;
-					line-height: 1;
-					padding: 0 40px;
-					height: 40px;
-					border-radius: 25px;
-					font-size: 16px;
-					font-weight: bold;
+					padding: 14px 40px;
+					border-radius: 30px;
+					cursor: pointer;
+
+					&.active {
+						border: 4px solid white;
+					}
+
+					&:not(:last-child) {
+						margin-right: 12px;
+					}
+
+					&#bronze-button {
+						background-color: brown;
+					}
+					&#silver-button {
+						background-color: silver;
+					}
+					&#gold-button {
+						background-color: gold;
+					}
+				}
+			}
+			.tier-details {
+				display: none;
+				&.active {
+					display: block;
 				}
 			}
 		}
